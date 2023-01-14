@@ -1,0 +1,150 @@
+﻿@model BloodProject.Models.ContactUs
+
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Css/ContactUs.css" rel="stylesheet" />
+
+
+</head>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="main">
+        <div class="form-horizontal">
+            <form>
+
+                <h2>Get in Touch</h2>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Cname, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.Cname, new { htmlAttributes = new { @class = "form-control" } })
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.CEmail, new { htmlAttributes = new { @class = "form-control" } })
+                                        @*@Html.ValidationMessageFor(model => model.CEmail, "", new { @class = "text-danger" })*@
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-envelope"></i>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Csubject, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.Csubject, new { htmlAttributes = new { @class = "form-control" } })
+                                        @*@Html.ValidationMessageFor(model => model.Csubject, "", new { @class = "text-danger" })*@
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-send"></i>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CYourMsg, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        @Html.TextAreaFor(model => model.CYourMsg, new { @class = "form-control", cols = "10", rows = "3" })
+                                        @*@Html.ValidationMessageFor(model => model.CYourMsg, "", new { @class = "text-danger" })*@
+
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-comment"></i>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="submit-agileits">
+                                <input type="submit" value="Submit" name="alertMessage" id="btnAlertMessage">
+                            </div>
+
+                            @if (ViewBag.Msg != null)
+                            {
+                                <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Msg");
+            };
+                                </script>
+                            }
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div>
+                    @Html.ActionLink("Back", "UserMainPage")
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="right">
+        <div class="col-md-5 d-flex align-items-stretch">
+            <div class="info-wrap bg-primary w-100 p-lg-5 p-4">
+                <h3 class="mb-4 mt-md-7">Contact us</h3>
+                <div class="dbox w-100 d-flex align-items-start">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <span class="fa fa-map-marker"></span>
+                    </div>
+                    <div class="text pl-3">
+                        <p><span>Address:</span> India</p>
+                    </div>
+                </div>
+                <div class="dbox w-100 d-flex align-items-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <span class="fa fa-phone"></span>
+                    </div>
+                    <div class="text pl-3">
+                        <p><span>Phone:</span> <a href="tel://1234567920">+ 9912 3547 96</a></p>
+                    </div>
+                </div>
+                <div class="dbox w-100 d-flex align-items-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <span class="fa fa-paper-plane"></span>
+                    </div>
+                    <div class="text pl-3">
+                        <p><span>Email:</span> <a href="mailto:info@yoursite.com">Admin@gmail.com</a></p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+}

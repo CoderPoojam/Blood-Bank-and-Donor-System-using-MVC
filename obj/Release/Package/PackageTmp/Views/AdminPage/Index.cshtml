@@ -1,0 +1,72 @@
+﻿@model IEnumerable<BloodProject.Models.ContactUs>
+
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+<html>
+<head>
+    <link href="~/Css/IndexQueries.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="form-horizontal">
+            <form>
+                <h2>Users Queries</h2>
+                <div class="table">
+                    <table>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cname)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CEmail)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Csubject)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CYourMsg)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cid)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CEmail)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Csubject)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CYourMsg)
+                                </td>
+                                <td>
+
+                                    @Html.ActionLink("Delete", "Queries", new { id = item.Cid }, new { onclick = "return confirm('Are You Sure Want To Delete Record - " + item.Cid + "');" })
+                            </tr>
+}
+
+                    </table>
+                    <div>
+                        @Html.ActionLink("Back", "AdminMainPage")
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

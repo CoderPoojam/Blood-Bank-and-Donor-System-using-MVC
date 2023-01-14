@@ -1,0 +1,22 @@
+﻿body {
+    font-family: 'Open Sans', sans-serif;
+    background-size: 1550px 700px;
+    background-position: center;
+    position: relative;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    background-image: url(../Images/Image.jpeg);
+}
+
+h2 {
+    color: white;
+    font-size: 25px;
+    font-weight: 200;
+    padding-top: 50px;
+    text-align: left;
+    margin-bottom: 1.5em;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 4px #000;
+}

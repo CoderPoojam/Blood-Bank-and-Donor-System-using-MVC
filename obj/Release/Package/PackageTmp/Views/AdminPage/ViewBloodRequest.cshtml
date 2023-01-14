@@ -1,0 +1,73 @@
+﻿@model IEnumerable<BloodProject.Models.Requester>
+@{
+    ViewBag.Title = "ViewBloodRequest";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Css/ViewBloodRequest.css" rel="stylesheet" />
+
+</head>
+
+
+<body>
+    <div class="main">
+        <h2>Blood Request</h2>
+        <div class="table">
+            <table id="tblRequesters">
+                <tr>
+
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>BloodGroup</th>
+                    <th>Address</th>
+                    <th></th>
+
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.Requester_id)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Requester_Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Requester_Email)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Requester_Mobile)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Requester_BloodGroup)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Requester_Address)
+                        </td>
+                        <td>
+                            @*@Html.ActionLink("Edit", "Edit", "Admin", new { id = item.Requester_id }, new { @id = "lnkDetails-" + item.Requester_id }) |
+                                @Html.ActionLink("Details", "Details", "Admin", new { id = item.Requester_id }, new { @id = "lnkDetails-" + item.Requester_id }) |*@
+                            @Html.ActionLink("Approve", "Approve", "AdminPage", new { id = item.Requester_id }, new { @id = "lnkDelete-" + item.Requester_id }) |
+                            @Html.ActionLink("Reject", "Reject", "AdminPage", new { id = item.Requester_id }, new { @id = "lnkDelete-" + item.Requester_id })
+                        </td>
+                    </tr>
+                }
+
+
+            </table>
+
+        </div>
+
+        <div>
+            @Html.ActionLink("Back", "AdminMainPage")
+        </div>
+    </div>
+</body>

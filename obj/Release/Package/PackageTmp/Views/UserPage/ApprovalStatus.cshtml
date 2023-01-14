@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "ApprovalStatus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Main Page</title>
+    <link href="~/Css/ApprovalMainPage.css" rel="stylesheet" />
+
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="main">
+            <div class="form-horizontal">
+                <form>
+
+
+                    <div class="btn1">
+                        <button type="button" onclick="location.href='@Url.Action("AprStaReqBld","UserPage")'">Approval status for Blood Request </button>
+                    </div>
+
+
+                    <div class="btn2">
+                        <button type="button" onclick="location.href='@Url.Action("AprStaReqDon","UserPage")'">Approval status for Donation Request</button>
+                    </div>
+                </form>
+                <div>
+                    @Html.ActionLink("Back", "UserMainPage")
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+    }
+
+</body>

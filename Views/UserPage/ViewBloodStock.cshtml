@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BloodProject.Models.BloodStock>
+@{
+    ViewBag.Title = "ViewBloodStock";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Blood Stock Availability</title>
+    <link href="~/Css/ViewBloodStock.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="form-horizontal">
+            <h2>Availability of Blood Stock</h2>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.Display("Blood Group")
+                        @Html.DisplayNameFor(model => model.BloodGroup)
+                    </th>
+                    <th>
+                        @Html.Display("Available Stock (in ml)")
+                        @Html.DisplayNameFor(model => model.AvailableStock)
+                    </th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BloodGroup)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AvailableStock)
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+        <div>
+            @Html.ActionLink("Back", "UserMainPage")
+        </div>
+
+    </div>
+
+</body>
+

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script type="text/javascript">
+        function ConfirmationDialog() {
+            if (confirm("Are you sure to Logout?"))
+                return true;
+            else
+                return false;
+        }
+    </script>
+  
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("Seekers", "#", new { area = "" }, new { @class = "navbar-brand" ,@readonly="readonly"})*@
+                <b class="navbar-brand" style="margin-left:-190px; color:white; font-size:26px;">SEEKERS</b>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right" !important" style="margin-right:-145px; color:white">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a>Dear - @User.Identity.Name</a></li>
+                        <li>@Html.ActionLink("My Profile", "ProfDetails", "UserPage")</li>
+                        <li>@Html.ActionLink("Check Status", "ApprovalStatus", "UserPage")</li>
+                        <li>@Html.ActionLink("ContactUs", "ContactUs", "UserPage")</li>
+                        <li> @Html.ActionLink("Logout", "Logout", "Main", null, new { onclick = "return ConfirmationDialog()" })</li>
+
+                    }
+                    else
+                    {
+
+                        <li style="margin-right: -10px;color:white">@Html.ActionLink("About Us", "AboutUs", "BloodBank")</li>
+                        <li style="margin-right: -50px; color: white ">@Html.ActionLink("Login", "Login", "Main")</li>
+
+
+
+                    }
+
+                    @*<li>Login</li>*@
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+
+        @RenderBody()
+
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

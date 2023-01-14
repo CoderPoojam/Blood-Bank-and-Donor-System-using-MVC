@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "AdminList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model List<BloodProject.Models.BloodStock>
+@{
+    ViewBag.Title = "AdminList";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Blood Stock List</title>
+    <link href="~/Css/AdminList.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="form-horizontal">
+            <h2>Blood Availability List </h2>
+            <div class="table">
+                <table align="center">
+                    <tr>
+                        <th>Blood Group</th>
+                        <th>Available in ML</th>
+                        <th>Action</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.BloodGroup</td>
+                            <td>@item.AvailableStock</td>
+                            <td>
+                                <a href="@Url.Action("Admin",new {item.BloodStockId,item.BloodGroup,item.AvailableStock })">Edit</a>
+
+                            </td>
+                        </tr>
+}
+                </table>
+
+
+            </div>
+
+            <div>
+                @Html.ActionLink("Back", "AdminMainPage")
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+

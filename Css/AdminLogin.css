@@ -1,0 +1,96 @@
+﻿body {
+    font-family: 'Open Sans', sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    background-image: url(../Images/blood.jpg);
+}
+
+form {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.main {
+    width: 40%;
+    margin: 0 auto;
+    padding: 4em 2em;
+    background: rgba(255, 255, 255, 0.07);
+    -webkit-box-shadow: 0 6px 12px 0 rgb(37, 37, 37);
+    -moz-box-shadow: 0 6px 12px 0 rgb(37, 37, 37);
+    box-shadow: 0 6px 43px 0 rgba(0, 0, 0, 0.4);
+}
+
+.form-horizontal h2 {
+    color: darkred;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 1.5em;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 4px #000;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+    .form-group control-label col-md-2, form-control {
+        width: 85%;
+        padding: 15px 66px 15px 19px;
+        text-align: left;
+        background-color: rgba(0, 0, 0, 0.16);
+        border: 0;
+        border-left: 2px solid #00c6d7;
+        font-size: 15px;
+        letter-spacing: 1.5px;
+        color: #fff;
+        outline: 0;
+        -webkit-box-shadow: 0 6px 12px 0 rgb(37, 37, 37);
+        -moz-box-shadow: 0 6px 12px 0 rgb(37, 37, 37);
+        box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.4);
+        font-family: 'Open Sans', sans-serif;
+    }
+
+
+
+.submit-agileits {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 30px;
+}
+
+    .submit-agileits input[type="submit"] {
+        text-align: center;
+        color: #ffffff;
+        font-size: 17px;
+        font-weight: 600;
+        padding: 14px 90px;
+        background-color: rgba(0, 0, 0, 0.34);
+        border: 3px solid rgba(255, 255, 255, 0.43);
+        box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.71);
+        outline: none;
+        cursor: pointer;
+        font-family: 'Open Sans', sans-serif;
+        letter-spacing: 1px;
+        transition: 0.5s ease-in-out;
+    }
+
+        .submit-agileits input[type="submit"]:hover {
+            color: #ffffff;
+            border-color: #00c6d7;
+        }
+
+.anim {
+    padding-top: 50px;
+    position: relative;
+    /*display: block;*/
+    color: #f0dc16;
+    font-size: 13px;
+    display: inline;
+    letter-spacing: 3px;
+    text-transform: capitalize;
+}

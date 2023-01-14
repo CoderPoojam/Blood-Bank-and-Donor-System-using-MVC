@@ -1,0 +1,97 @@
+﻿@model BloodProject.Models.Registration
+@{
+    ViewBag.Title = "AprStaReqDon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Css/ApprovalStatus.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+</head>
+
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="main">
+
+            <div class="form-horizontal">
+                <form>
+                    <h2>Status For Request For Donation</h2>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBox("Name", (object)ViewBag.f, htmlAttributes: new { @class = "form-control", @readonly = "readonly", @style = "width:210px;" })
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBox("Email", (object)ViewBag.g, htmlAttributes: new { @class = "form-control", @style = "width:210px;" })
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBox("Mobile", (object)ViewBag.h, htmlAttributes: new { @class = "form-control", @readonly = "readonly", @style = "width:210px;" })
+                            @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBox("Address", (object)ViewBag.j, htmlAttributes: new { @class = "form-control", @readonly = "readonly", @style = "width:210px;" })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    @if (ViewBag.s != null)
+                    {
+                        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.s");
+            };
+                        </script>
+                    }
+
+
+                    <div class="clear"></div>
+                    <div class="submit-agileits">
+                        <input type="submit" value="CheckStatus">
+                    </div>
+                    <div>
+                        @Html.ActionLink("Back", "ApprovalStatus")
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    }
+
+
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+
+
+

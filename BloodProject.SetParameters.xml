@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="BloodProject.com" />
+  <setParameter name="BloodsDatabaseEntities-Web.config Connection String" value="Data source =DESKTOP-9K667JI; Initial Catalog=BloodBankDonorSystem; Integrated Security=True " />
+</parameters>

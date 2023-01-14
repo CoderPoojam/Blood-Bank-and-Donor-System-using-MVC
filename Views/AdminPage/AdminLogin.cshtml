@@ -1,0 +1,77 @@
+﻿@model BloodProject.Models.Admin
+
+@{
+    ViewBag.Title = "AdminLogin";
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Css/AdminLogin.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="main">
+        <div class="form-horizontal">
+            <form>
+
+                <h2>Admin Login</h2>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Admin_Email, htmlAttributes: new { @class = "control-label col-md-3" })
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.Admin_Email, new { htmlAttributes = new { @class = "form-control col-md-12" } })
+                                        @Html.ValidationMessageFor(model => model.Admin_Email, "", new { @class = "text-danger" })
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-envelope"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Admin_Password, htmlAttributes: new { @class = "control-label col-md-3" })
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.Admin_Password, new { htmlAttributes = new { @class = "form-control col-md-12" } })
+                                        @Html.ValidationMessageFor(model => model.Admin_Password, "", new { @class = "text-danger" })
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-lock"></i>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+                <div class="submit-agileits">
+                    <input type="submit" value="Login">
+                </div>
+                <br />
+                <div>
+                    @Html.ActionLink("Back", "Login", "Main")
+                </div>
+            </form>
+        </div>
+
+    </div>
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

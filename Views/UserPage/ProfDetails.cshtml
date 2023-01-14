@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "ProfDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model BloodProject.Models.Registration
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Css/ProfileDetailsEdit.css" rel="stylesheet" />
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="main">
+            <div class="form-horizontal">
+                <form>
+                    <h2>My Profile</h2>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="sub">
+                                @Html.TextBox("Name", (object)ViewBag.f, htmlAttributes: new { @class = "form-control", @readonly = "readonly", @style = "width:200px;" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, "Email", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="sub">
+
+
+                                @Html.TextBox("Email", (object)ViewBag.g, htmlAttributes: new { @class = "form-control", @readonly = "readonly", @style = "width:200px;" })
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="sub">
+
+
+                                @Html.TextBox("Mobile", (object)ViewBag.h, htmlAttributes: new { @class = "form-control", @readonly = "readonly", @style = "width:200px;" })
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="sub">
+
+
+                                @Html.TextBox("Gender", (object)ViewBag.k, htmlAttributes: new { @class = "form-control", @readonly = "readonly", @style = "width:200px;" })
+
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="sub">
+
+
+                                @Html.TextBox("Address", (object)ViewBag.j, htmlAttributes: new { @class = "form-control", @readonly = "readonly", @style = "width:200px;" })
+
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+
+                    <br />
+
+
+                    <div class="btn">
+                        <button type="button" onclick="location.href='@Url.Action("Edit","UserPage")'">EditDetails</button>
+
+                    </div>
+
+                    <br />
+
+                    <div>
+                        @Html.ActionLink("Back", "UserMainPage")
+                    </div>
+                    <br />
+
+
+                </form>
+            </div>
+        </div>
+    }
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+
+
+

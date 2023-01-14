@@ -1,0 +1,87 @@
+﻿@model IEnumerable<BloodProject.Models.Donor>
+@{
+    ViewBag.Title = "ViewDonationRequest";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Donation Request</title>
+
+    <link href="~/Css/ViewBloodRequest.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="main">
+
+        <h2>Donation Request List</h2>
+        <div class="table">
+            <table>
+                <tr>
+                    <th>
+                        @Html.Display("Name")
+                        @Html.DisplayNameFor(model => model.Donor_Name)
+                    </th>
+
+                    <th>
+                        @Html.Display("Email")
+                        @Html.DisplayNameFor(model => model.Donor_Email)
+                    </th>
+
+                    <th>
+                        @Html.Display("Mobile")
+                        @Html.DisplayNameFor(model => model.Donor_Mobile)
+                    </th>
+
+                    <th>
+                        @Html.Display("Blood Group")
+                        @Html.DisplayNameFor(model => model.Donor_BloodGroup)
+                    </th>
+
+                    <th>
+                        @Html.Display("Address")
+                        @Html.DisplayNameFor(model => model.Donor_Address)
+                    </th>
+
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Donor_Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Donor_Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Donor_Mobile)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Donor_BloodGroup)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Donor_Address)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Approve", "DonApprove", "AdminPage", new { id = item.Donor_id }, new { @id = "lnkDelete-" + item.Donor_id }) |
+                            @Html.ActionLink("Reject", "DonReject", "AdminPage", new { id = item.Donor_id }, new { @id = "lnkDelete-" + item.Donor_id })
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+        <div>
+            @Html.ActionLink("Back", "AdminMainPage")
+        </div>
+    </div>
+
+
+
+</body>

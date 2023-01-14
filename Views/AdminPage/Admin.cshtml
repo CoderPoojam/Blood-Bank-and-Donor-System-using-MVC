@@ -1,0 +1,110 @@
+﻿@model BloodProject.Models.BloodStock
+@{
+    @*<a href="~/Views/Shared/_AdminLayout.cshtml">~/Views/Shared/_AdminLayout.cshtml</a>*@
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Admin";
+}
+<html>
+<head>
+    <style>
+        body, html {
+            font-family: 'Open Sans', sans-serif;
+            background-size: 1550px 700px;
+            background-position: center;
+            position: relative;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            background-image: url('../../Images/blood.jpg');
+        }
+
+        .bg {
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .jumbotron {
+            margin-top: 2%;
+            margin-bottom: 20%;
+            margin-left: 30%;
+            margin-right: 30%;
+            background: transparent;
+            border: 1px solid #fff;
+            border-top-left-radius: 20px;
+            /* border-buttom-right-radius: 20px;*/
+            -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+            -moz-box-shadow: 3px 3px 5px 6px #ccc;
+            box-shadow: 3px 3px 5px 6px #ccc;
+        }
+
+        .btn {
+            text-align: center;
+            margin-top: 2em;
+            margin-bottom: 30px;
+        }
+
+            .btn button[type="submit"] {
+                text-align: center;
+                font-size: 17px;
+                font-weight: 600;
+                padding: 14px 90px;
+                background-color: rgba(0, 0, 0, 0.34);
+                border: 3px solid rgba(255, 255, 255, 0.43);
+                box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.71);
+                outline: none;
+                cursor: pointer;
+                font-family: 'Open Sans', sans-serif;
+                letter-spacing: 1px;
+                transition: 0.5s ease-in-out;
+            }
+
+                .btn button[type="submit"]:hover {
+                    color: #ffffff;
+                    border-color: #00c6d7;
+                }
+
+            a{
+                color: black;
+                text-decoration:none;
+            }
+    </style>
+</head>
+<body>
+    <center class="jumbotron">
+
+        @using (Html.BeginForm("Add", "AdminPage", FormMethod.Post))
+        {
+
+            <div class="bg">
+                <div class="form-group">
+                    @Html.HiddenFor(x => x.BloodStockId)
+                    <label>Blood Group</label>
+                    @Html.TextBoxFor(x => x.BloodGroup, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Enter Quantity</label>
+                    @Html.TextBoxFor(x => x.AvailableStock, new { @class = "form-control" })
+                </div>
+
+
+                <div class="clear"></div>
+                <div class="col-md-12 text-center">
+                    <div class="btn">
+                        <button type="submit">Update</button>
+                    </div>
+                </div>
+
+
+
+            </div>}
+        @Html.ActionLink("Blood Availability List", "AdminList", "AdminPage")
+        <div>
+            @Html.ActionLink("Back", "AdminMainPage")
+        </div>
+
+    </center>
+</body>
+</html>
